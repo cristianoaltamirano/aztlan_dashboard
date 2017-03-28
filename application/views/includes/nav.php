@@ -41,9 +41,9 @@
                 <!-- END TODO DROPDOWN -->
                 <!-- BEGIN USER LOGIN DROPDOWN -->
                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                <li class="dropdown dropdown-user">
+                <!--<li class="dropdown dropdown-user">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <img alt="" class="img-circle" src="<?php echo base_url(); ?>/assets/layouts/layout/img/avatar3_small.jpg" />
+                        <img alt="" class="img-circle" src="<?php /*echo base_url(); */?>/assets/layouts/layout/img/avatar3_small.jpg" />
                         <span class="username username-hide-on-mobile"> Nick </span>
                         <i class="fa fa-angle-down"></i>
                     </a>
@@ -78,7 +78,7 @@
                                 <i class="icon-key"></i> Log Out </a>
                         </li>
                     </ul>
-                </li>
+                </li>-->
                 <!-- END USER LOGIN DROPDOWN -->
                 <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->

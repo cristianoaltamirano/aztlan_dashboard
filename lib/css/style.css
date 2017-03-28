@@ -5,3 +5,7 @@ body{
 #cont-home{
     max-width: 100%;
 }
+
+.table td, .table th {
+    font-size: 12px!important;
+}

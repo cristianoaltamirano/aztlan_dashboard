@@ -31,7 +31,7 @@
             </li>
             <!-- END SIDEBAR TOGGLER BUTTON -->
 
-            <li class="nav-item start ">
+            <!--<li class="nav-item start ">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
                     <span class="title">Dashboard</span>
@@ -82,7 +82,7 @@
                     </li>
 
                 </ul>
-            </li>
+            </li>-->
         </ul>
         <!-- END SIDEBAR MENU -->
         <!-- END SIDEBAR MENU -->
