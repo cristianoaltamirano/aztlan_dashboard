@@ -14,7 +14,7 @@ class Dashboard_model extends CI_Model
         //ini_set('memory_limit', "-1");
     }
 
-    public function get_reservas(){
+    /*public function get_reservas(){
         $query = $this->db->query('
         SELECT reservas.fecha, 
                reservas.idReserva,
@@ -46,7 +46,7 @@ class Dashboard_model extends CI_Model
 
         // Return the result object
         return $query->result();
-    }
+    }*/
 
     public function set_reserva(){
         $idUsuario = $this->searchUsuario($this->input->post('pk'));
@@ -70,72 +70,56 @@ class Dashboard_model extends CI_Model
         return $query->result()[0]->usuarios_idUsuario;
     }
 
-    //fetch books
-    function get_books($limit, $start, $st = NULL)
+
+    function get_reservas($limit, $start, $st = NULL)
     {
-        if ($st == "NIL") $st = "";
-        //$sql = "select * from tbl_books where name like '%$st%' limit " . $start . ", " . $limit;
-        $sql = '
-        SELECT reservas.fecha,
-               reservas.idReserva,
-               usuarios.nombre,
-               usuarios.apellido,
-               usuarios.situacion,
-               usuarios.telefono,
-               usuarios.dni,
-               usuarios.email,
-               usuarios.facebook,
-               usuarios.linkfacebook,
-               usuarios.ok,
-               usuarios.tipo,
-               usuarios.interes,
-               eventos.fechaStr,
-               eventos.horario,
-               usuarios.quien,
-               reservas.source,
-               usuarios.hora,
-               usuarios.consulta
+        /*SELECT *
         FROM reservas
         JOIN usuarios
         ON usuarios_idUsuario=idUsuario
         JOIN eventos
         ON eventos_idEvento=idEvento
+        WHERE nombre LIKE "%' . $st . '%"
+        ORDER BY reservas.fecha DESC*/
+        if ($st == "NIL") $st = "";
+        $sql = '
+        SELECT * FROM reservas
+        JOIN usuarios
+        ON usuarios_idUsuario=idUsuario
+        JOIN eventos
+        ON eventos_idEvento=idEvento
+        WHERE usuarios.nombre LIKE "%' . $st . '%"
+        OR usuarios.apellido LIKE "%' . $st . '%"
+        OR usuarios.dni LIKE "%' . $st . '%"
+        OR usuarios.email LIKE "%' . $st . '%"
+        OR usuarios.telefono LIKE "%' . $st . '%"
+        OR usuarios.facebook LIKE "%' . $st . '%"
+        OR reservas.fecha LIKE "%' . $st . '%"
+        OR eventos.titulo LIKE "%' . $st . '%"
         ORDER BY reservas.fecha DESC
         LIMIT ' . $start. ', ' . $limit;
         $query = $this->db->query($sql);
         return $query->result();
     }
 
-    function get_books_count($st = NULL)
+    function get_reservas_count($st = NULL)
     {
         if ($st == "NIL") $st = "";
-        //$sql = "select * from tbl_books where name like '%$st%'";
         $sql = '
-        SELECT reservas.fecha,
-               reservas.idReserva,
-               usuarios.nombre,
-               usuarios.apellido,
-               usuarios.situacion,
-               usuarios.telefono,
-               usuarios.dni,
-               usuarios.email,
-               usuarios.facebook,
-               usuarios.linkfacebook,
-               usuarios.ok,
-               usuarios.tipo,
-               usuarios.interes,
-               eventos.fechaStr,
-               eventos.horario,
-               usuarios.quien,
-               reservas.source,
-               usuarios.hora,
-               usuarios.consulta
-        FROM reservas
+        SELECT * FROM reservas
         JOIN usuarios
         ON usuarios_idUsuario=idUsuario
         JOIN eventos
         ON eventos_idEvento=idEvento
-        WHERE * LIKE "%$st%"';
+        WHERE usuarios.nombre LIKE "%' . $st . '%"
+        OR usuarios.apellido LIKE "%' . $st . '%"
+        OR usuarios.dni LIKE "%' . $st . '%"
+        OR usuarios.email LIKE "%' . $st . '%"
+        OR usuarios.telefono LIKE "%' . $st . '%"
+        OR usuarios.facebook LIKE "%' . $st . '%"
+        OR reservas.fecha LIKE "%' . $st . '%"
+        OR eventos.titulo LIKE "%' . $st . '%" 
+        ORDER BY reservas.fecha DESC';
         $query = $this->db->query($sql);
         return $query->num_rows();
     }

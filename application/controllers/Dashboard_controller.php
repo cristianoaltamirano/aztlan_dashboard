@@ -28,7 +28,7 @@ class Dashboard_controller extends CI_Controller
     }
 
     public function getReservas(){
-        echo json_encode($this->Dashboard_model->get_reservas());
+        echo json_encode($this->Dashboard_model->get_reservas('10','1'));
     }
 
     public function setReserva(){
@@ -48,8 +48,8 @@ class Dashboard_controller extends CI_Controller
         $config['full_tag_open'] = '<ul class="pagination">';
         $config['full_tag_close'] = '</ul>';
         $config['use_page_numbers'] = true;
-        $config['first_link'] = "&lt;&lt; First";
-        $config['last_link'] = "Last &gt;&gt;";
+        $config['first_link'] = "&lt;&lt; Primero";
+        $config['last_link'] = "Último &gt;&gt;";
         $config['first_tag_open'] = '<li>';
         $config['first_tag_close'] = '</li>';
         $config['prev_link'] = '«';
@@ -68,8 +68,8 @@ class Dashboard_controller extends CI_Controller
 
         $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 
-        // get books list
-        $data['booklist'] = $this->Dashboard_model->get_books($config["per_page"], $data['page'], NULL);
+
+        $data['reservaslist'] = $this->Dashboard_model->get_reservas($config["per_page"], $data['page'], NULL);
 
         $data['pagination'] = $this->pagination->create_links();
 
@@ -83,14 +83,14 @@ class Dashboard_controller extends CI_Controller
     function search()
     {
         // get search string
-        $search = ($this->input->post("book_name"))? $this->input->post("book_name") : "NIL";
+        $search = ($this->input->post("reserva_search"))? $this->input->post("reserva_search") : "NIL";
 
         $search = ($this->uri->segment(3)) ? $this->uri->segment(3) : $search;
 
         // pagination settings
         $config = array();
-        $config['base_url'] = site_url("pagination/search/$search");
-        $config['total_rows'] = $this->Dashboard_model->get_books_count($search);
+        $config['base_url'] = site_url("Dashboard_controller/search");
+        $config['total_rows'] = $this->Dashboard_model->get_reservas_count($search);
         $config['per_page'] = "11";
         $config["uri_segment"] = 4;
         $choice = $config["total_rows"]/$config["per_page"];
@@ -118,11 +118,11 @@ class Dashboard_controller extends CI_Controller
         $this->pagination->initialize($config);
 
         $data['page'] = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
-        // get books list
-        $data['booklist'] = $this->Dashboard_model->get_books($config['per_page'], $data['page'], $search);
+
+        $data['reservaslist'] = $this->Dashboard_model->get_reservas($config['per_page'], $data['page'], $search);
 
         $data['pagination'] = $this->pagination->create_links();
-
+        $data["title"] = 'SEARCH';
         //load view
         $this->load->view('reservas_view',$data);
     }
