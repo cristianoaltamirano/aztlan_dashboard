@@ -111,63 +111,104 @@
                                                        data-type="select"
                                                        data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
                                                        data-original-title="Enter situacion"> <?php if ($reservaslist[$i]->situacion == null) {
-                                                            echo '---';
+                                                            echo 'Vacío';
                                                         } else {
                                                             echo $reservaslist[$i]->situacion;
-                                                        }; ?></a></td>
+                                                        }; ?></a>
+                                                </td>
                                                 <td><a href="javascript:;" class="telefono" data-name='telefono'
                                                        data-type="text"
                                                        data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter teléfono"> <?php echo $reservaslist[$i]->telefono; ?></a>
+                                                       data-original-title="Enter teléfono"> <?php if ($reservaslist[$i]->telefono == null) {
+                                                            echo 'Vacío';
+                                                        } else {
+                                                            echo $reservaslist[$i]->telefono;
+                                                        }; ?></a>
                                                 </td>
                                                 <td><a href="javascript:;" class="dni" data-name='dni'
                                                        data-type="text"
                                                        data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter DNI"> <?php echo $reservaslist[$i]->dni; ?></a>
+                                                       data-original-title="Enter dni"> <?php if ($reservaslist[$i]->dni == null) {
+                                                            echo 'Vacío';
+                                                        } else {
+                                                            echo $reservaslist[$i]->dni;
+                                                        }; ?></a>
                                                 </td>
                                                 <td><a href="javascript:;" class="email" data-name='email'
                                                        data-type="text"
                                                        data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter Email"> <?php echo $reservaslist[$i]->email; ?></a>
+                                                       data-original-title="Enter email"> <?php if ($reservaslist[$i]->email == null) {
+                                                            echo 'Vacío';
+                                                        } else {
+                                                            echo $reservaslist[$i]->email;
+                                                        }; ?></a>
                                                 </td>
                                                 <td><a href="javascript:;" class="facebook" data-name='facebook'
                                                        data-type="text"
                                                        data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter facebook"> <?php echo $reservaslist[$i]->facebook; ?></a>
+                                                       data-original-title="Enter facebook"> <?php if ($reservaslist[$i]->facebook == null) {
+                                                            echo 'Vacío';
+                                                        } else {
+                                                            echo $reservaslist[$i]->facebook;
+                                                        }; ?></a>
                                                 </td>
                                                 <td><a href="javascript:;" class="linkfacebook" data-name='linkfacebook'
                                                        data-type="text"
                                                        data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter Link Facebook"> <?php echo $reservaslist[$i]->linkfacebook; ?></a>
+                                                       data-original-title="Enter linkfacebook"> <?php if ($reservaslist[$i]->linkfacebook == null) {
+                                                            echo 'Vacío';
+                                                        } else {
+                                                            echo $reservaslist[$i]->linkfacebook;
+                                                        }; ?></a>
                                                 </td>
                                                 <td><a href="javascript:;" class="ok" data-name='ok'
                                                        data-type="text"
                                                        data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter OK"> <?php echo $reservaslist[$i]->ok; ?></a>
+                                                       data-original-title="Enter ok"> <?php if ($reservaslist[$i]->ok == null) {
+                                                            echo 'Vacío';
+                                                        } else {
+                                                            echo $reservaslist[$i]->ok;
+                                                        }; ?></a>
                                                 </td>
                                                 <td><?php echo $reservaslist[$i]->tipo; ?></td>
                                                 <td><a href="javascript:;" class="interes" data-name='interes'
                                                        data-type="text"
                                                        data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter Interes"> <?php echo $reservaslist[$i]->interes; ?></a>
+                                                       data-original-title="Enter interes"> <?php if ($reservaslist[$i]->interes == null) {
+                                                            echo 'Vacío';
+                                                        } else {
+                                                            echo $reservaslist[$i]->interes;
+                                                        }; ?></a>
                                                 </td>
                                                 <td><?php echo $reservaslist[$i]->fechaStr; ?></td>
                                                 <td><?php echo $reservaslist[$i]->horario; ?></td>
                                                 <td><a href="javascript:;" class="quien" data-name='quien'
                                                        data-type="text"
                                                        data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter Quien"> <?php echo $reservaslist[$i]->quien; ?></a>
+                                                       data-original-title="Enter quien"> <?php if ($reservaslist[$i]->quien == null) {
+                                                            echo 'Vacío';
+                                                        } else {
+                                                            echo $reservaslist[$i]->quien;
+                                                        }; ?></a>
                                                 </td>
                                                 <td><?php echo $reservaslist[$i]->source; ?></td>
                                                 <td><a href="javascript:;" class="hora" data-name='hora'
                                                        data-type="text"
                                                        data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter Hora"> <?php echo $reservaslist[$i]->hora; ?></a>
+                                                       data-original-title="Enter hora"> <?php if ($reservaslist[$i]->hora == null) {
+                                                            echo 'Vacío';
+                                                        } else {
+                                                            echo $reservaslist[$i]->hora;
+                                                        }; ?></a>
                                                 </td>
                                                 <td><a href="javascript:;" class="consulta" data-name='consulta'
                                                        data-type="text"
                                                        data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter consulta"> <?php echo $reservaslist[$i]->consulta; ?></a>
+                                                       data-original-title="Enter consulta"> <?php if ($reservaslist[$i]->consulta == null) {
+                                                            echo 'Vacío';
+                                                        } else {
+                                                            echo $reservaslist[$i]->consulta;
+                                                        }; ?></a>
                                                 </td>
                                             </tr>
                                         <?php } ?>

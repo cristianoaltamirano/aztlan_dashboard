@@ -89,7 +89,7 @@ class Dashboard_controller extends CI_Controller
 
         // pagination settings
         $config = array();
-        $config['base_url'] = site_url("Dashboard_controller/search");
+        $config['base_url'] = site_url("Dashboard_controller/search/$search");
         $config['total_rows'] = $this->Dashboard_model->get_reservas_count($search);
         $config['per_page'] = "11";
         $config["uri_segment"] = 4;
