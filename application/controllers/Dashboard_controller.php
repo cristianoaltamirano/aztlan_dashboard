@@ -23,11 +23,7 @@ class Dashboard_controller extends CI_Controller
 
     public function index()
     {
-        $data = array();
-
-        $data["title"] = 'HOME';
-
-        $this->load->view( 'home_view', $data );
+        reservas();
     }
 
     public function getReservas(){
@@ -42,8 +38,8 @@ class Dashboard_controller extends CI_Controller
         //pagination settings
         $config['base_url'] = site_url('Dashboard_controller/reservas');
         $config['total_rows'] = $this->db->count_all('reservas');
-        $config['per_page'] = "11";
-        $config["uri_segment"] = 3;
+        $config['per_page'] = "100";
+        $config['uri_segment'] = $this->uri->total_segments();
         $choice = $config["total_rows"]/$config["per_page"];
         $config["num_links"] = 10;
 
@@ -71,7 +67,6 @@ class Dashboard_controller extends CI_Controller
 
         $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 
-
         $data['reservaslist'] = $this->Dashboard_model->get_reservas($config["per_page"], $data['page'], NULL);
 
         $data['pagination'] = $this->pagination->create_links();
@@ -94,8 +89,8 @@ class Dashboard_controller extends CI_Controller
         $config = array();
         $config['base_url'] = site_url("Dashboard_controller/search/$search");
         $config['total_rows'] = $this->Dashboard_model->get_reservas_count($search);
-        $config['per_page'] = "11";
-        $config["uri_segment"] = 4;
+        $config['per_page'] = "100";
+        $config['uri_segment'] = $this->uri->total_segments();
         $choice = $config["total_rows"]/$config["per_page"];
         $config["num_links"] = 10;
 

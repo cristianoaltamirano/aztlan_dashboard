@@ -45,7 +45,7 @@
                         </div>
                         <div class="portlet-body">
                             <div class="row">
-                                <div class="col-md-12 well">
+                                <div class="col-md-12">
                                     <?php
                                     $attr = array("class" => "form-horizontal", "role" => "form", "id" => "form1", "name" => "form1");
                                     echo form_open("Dashboard_controller/search", $attr); ?>
@@ -55,12 +55,13 @@
                                                    placeholder="Buscar" type="text"
                                                    value="<?php echo set_value('reserva_search'); ?>"/>
                                         </div>
+
                                         <div class="col-md-6">
                                             <input id="btn_search" name="btn_search" type="submit"
-                                                   class="btn btn-danger"
+                                                   class="btn btn-default dark"
                                                    value="Buscar"/>
                                             <a href="<?php echo base_url() . "index.php/Dashboard_controller/reservas"; ?>"
-                                               class="btn btn-primary">Mostrar Todo</a>
+                                               class="btn btn-default blue">Mostrar Todo</i></a>
                                         </div>
                                     </div>
                                     <?php echo form_close(); ?>
