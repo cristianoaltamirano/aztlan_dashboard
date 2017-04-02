@@ -11,6 +11,9 @@ class Dashboard_controller extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        if ( !isLogged() ) {
+            redirect( base_url() . 'login' );
+        }
         $this->load->helper('form');
         $this->load->helper('url');
         $this->load->database();

@@ -88,7 +88,7 @@
                                             <th scope="col">Horario</th>
                                             <th scope="col">Quien</th>
                                             <th scope="col">Fuente</th>
-                                            <th scope="col">Hora</th>
+                                            <th scope="col">Owner</th>
                                             <th scope="col">Consulta</th>
                                         </tr>
                                         </thead>
@@ -192,13 +192,13 @@
                                                         }; ?></a>
                                                 </td>
                                                 <td><?php echo $reservaslist[$i]->source; ?></td>
-                                                <td><a href="javascript:;" class="hora" data-name='hora'
+                                                <td><a href="javascript:;" class="hora" data-name='owner'
                                                        data-type="text"
                                                        data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter hora"> <?php if ($reservaslist[$i]->hora == null) {
+                                                       data-original-title="Enter owner"> <?php if ($reservaslist[$i]->owner == null) {
                                                             echo 'Vacío';
                                                         } else {
-                                                            echo $reservaslist[$i]->hora;
+                                                            echo $reservaslist[$i]->owner;
                                                         }; ?></a>
                                                 </td>
                                                 <td><a href="javascript:;" class="consulta" data-name='consulta'

@@ -95,6 +95,7 @@ class Dashboard_model extends CI_Model
         OR usuarios.telefono LIKE "%' . $st . '%"
         OR usuarios.facebook LIKE "%' . $st . '%"
         OR reservas.fecha LIKE "%' . $st . '%"
+        OR reservas.owners_idOwner LIKE "%' . $st . '%"
         OR eventos.titulo LIKE "%' . $st . '%"
         ORDER BY reservas.fecha DESC
         LIMIT ' . $start. ', ' . $limit;
@@ -118,6 +119,7 @@ class Dashboard_model extends CI_Model
         OR usuarios.telefono LIKE "%' . $st . '%"
         OR usuarios.facebook LIKE "%' . $st . '%"
         OR reservas.fecha LIKE "%' . $st . '%"
+        OR reservas.owners_idOwner LIKE "%' . $st . '%"
         OR eventos.titulo LIKE "%' . $st . '%" 
         ORDER BY reservas.fecha DESC';
         $query = $this->db->query($sql);
