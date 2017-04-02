@@ -77,6 +77,7 @@
                                             <th scope="col">Nombre</th>
                                             <th scope="col">Apellido</th>
                                             <th scope="col">Situación</th>
+                                            <th scope="col">Motivo</th>
                                             <th scope="col">Teléfono</th>
                                             <th scope="col">DNI</th>
                                             <th scope="col">Email</th>
@@ -115,6 +116,15 @@
                                                             echo 'Vacío';
                                                         } else {
                                                             echo $reservaslist[$i]->situacion;
+                                                        }; ?></a>
+                                                </td>
+                                                <td><a href="javascript:;" class="motivo" data-name='motivo'
+                                                       data-type="text"
+                                                       data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
+                                                       data-original-title="Enter motivo"> <?php if ($reservaslist[$i]->motivo == null) {
+                                                            echo 'Vacío';
+                                                        } else {
+                                                            echo $reservaslist[$i]->motivo;
                                                         }; ?></a>
                                                 </td>
                                                 <td><a href="javascript:;" class="telefono" data-name='telefono'
