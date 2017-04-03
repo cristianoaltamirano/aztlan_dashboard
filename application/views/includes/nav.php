@@ -41,14 +41,14 @@
                 <!-- END TODO DROPDOWN -->
                 <!-- BEGIN USER LOGIN DROPDOWN -->
                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                <!--<li class="dropdown dropdown-user">
+                <li class="dropdown dropdown-user">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <img alt="" class="img-circle" src="<?php /*echo base_url(); */?>/assets/layouts/layout/img/avatar3_small.jpg" />
-                        <span class="username username-hide-on-mobile"> Nick </span>
+                        <!--<img alt="" class="img-circle" src="<?php /*echo base_url(); */?>/assets/layouts/layout/img/avatar3_small.jpg" />-->
+                        <span class="username username-hide-on-mobile"> <?php echo $this->session->userdata['logged_in']['username']; ?> </span>
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default">
-                        <li>
+                        <!--<li>
                             <a href="page_user_profile_1.html">
                                 <i class="icon-user"></i> My Profile </a>
                         </li>
@@ -72,13 +72,13 @@
                         <li>
                             <a href="page_user_lock_1.html">
                                 <i class="icon-lock"></i> Lock Screen </a>
-                        </li>
+                        </li>-->
                         <li>
-                            <a href="page_user_login_1.html">
-                                <i class="icon-key"></i> Log Out </a>
+                            <a href="<?php echo base_url(); ?>logout">
+                                <i class="icon-key"></i> Salir </a>
                         </li>
                     </ul>
-                </li>-->
+                </li>
                 <!-- END USER LOGIN DROPDOWN -->
                 <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->

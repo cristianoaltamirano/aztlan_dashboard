@@ -11,42 +11,7 @@ class Dashboard_model extends CI_Model
     public function __construct()
     {
         parent::__construct();
-        //ini_set('memory_limit', "-1");
     }
-
-    /*public function get_reservas(){
-        $query = $this->db->query('
-        SELECT reservas.fecha, 
-               reservas.idReserva,
-               usuarios.nombre,
-               usuarios.apellido,
-               usuarios.situacion,
-               usuarios.telefono,
-               usuarios.dni,
-               usuarios.email,
-               usuarios.facebook,
-               usuarios.linkfacebook,
-               usuarios.ok,
-               usuarios.tipo,
-               usuarios.interes,
-               eventos.fechaStr,
-               eventos.horario,
-               usuarios.quien,
-               reservas.source,
-               usuarios.hora,
-               usuarios.consulta
-        FROM reservas
-        JOIN usuarios
-        ON usuarios_idUsuario=idUsuario
-        JOIN eventos
-        ON eventos_idEvento=idEvento
-        ORDER BY reservas.fecha DESC
-        LIMIT 5000
-        ');
-
-        // Return the result object
-        return $query->result();
-    }*/
 
     public function set_reserva(){
         $idUsuario = $this->searchUsuario($this->input->post('pk'));
@@ -73,14 +38,6 @@ class Dashboard_model extends CI_Model
 
     function get_reservas($limit, $start, $st = NULL)
     {
-        /*SELECT *
-        FROM reservas
-        JOIN usuarios
-        ON usuarios_idUsuario=idUsuario
-        JOIN eventos
-        ON eventos_idEvento=idEvento
-        WHERE nombre LIKE "%' . $st . '%"
-        ORDER BY reservas.fecha DESC*/
         if ($st == "NIL") $st = "";
         $sql = '
         SELECT * FROM reservas

@@ -68,163 +68,160 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12 bg-border  table-responsive">
-                                    <table id="table-reservas" class="table table-striped table-bordered table-hover">
-                                        <thead>
-                                        <tr>
-                                            <th scope="col">Reserva</th>
-                                            <th scope="col">Fecha</th>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Apellido</th>
-                                            <th scope="col">Situación</th>
-                                            <th scope="col">Motivo</th>
-                                            <th scope="col">Teléfono</th>
-                                            <th scope="col">DNI</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Facebook</th>
-                                            <th scope="col">Link</th>
-                                            <th scope="col">Ok</th>
-                                            <th scope="col">Tipo</th>
-                                            <th scope="col">Interes</th>
-                                            <th scope="col">Día</th>
-                                            <th scope="col">Horario</th>
-                                            <th scope="col">Quien</th>
-                                            <th scope="col">Fuente</th>
-                                            <th scope="col">Owner</th>
-                                            <th scope="col">Consulta</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <?php for ($i = 0; $i < count($reservaslist); ++$i) { ?>
+                                <div class="col-md-12 bg-border">
+                                    <div class="table-responsive" style="max-height: 500px;">
+                                        <table id="table-reservas"
+                                               class="table table-striped table-bordered table-hover">
+                                            <thead>
                                             <tr>
-                                                <td><?php echo $reservaslist[$i]->idReserva; ?></td>
-                                                <td><?php echo $reservaslist[$i]->fecha; ?></td>
-                                                <td><a href="javascript:;" class="nombre" data-name='nombre'
-                                                       data-type="text"
-                                                       data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter nombre"> <?php echo $reservaslist[$i]->nombre; ?></a>
-                                                </td>
-                                                <td><a href="javascript:;" class="apellido" data-name='apellido'
-                                                       data-type="text"
-                                                       data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter apellido"> <?php echo $reservaslist[$i]->apellido; ?></a>
-                                                </td>
-                                                <td><a href="javascript:;" class="situacion" data-name='situacion'
-                                                       data-type="select"
-                                                       data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter situacion"> <?php if ($reservaslist[$i]->situacion == null) {
-                                                            echo 'Vacío';
-                                                        } else {
-                                                            echo $reservaslist[$i]->situacion;
-                                                        }; ?></a>
-                                                </td>
-                                                <td><a href="javascript:;" class="motivo" data-name='motivo'
-                                                       data-type="text"
-                                                       data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter motivo"> <?php if ($reservaslist[$i]->motivo == null) {
-                                                            echo 'Vacío';
-                                                        } else {
-                                                            echo $reservaslist[$i]->motivo;
-                                                        }; ?></a>
-                                                </td>
-                                                <td><a href="javascript:;" class="telefono" data-name='telefono'
-                                                       data-type="text"
-                                                       data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter teléfono"> <?php if ($reservaslist[$i]->telefono == null) {
-                                                            echo 'Vacío';
-                                                        } else {
-                                                            echo $reservaslist[$i]->telefono;
-                                                        }; ?></a>
-                                                </td>
-                                                <td><a href="javascript:;" class="dni" data-name='dni'
-                                                       data-type="text"
-                                                       data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter dni"> <?php if ($reservaslist[$i]->dni == null) {
-                                                            echo 'Vacío';
-                                                        } else {
-                                                            echo $reservaslist[$i]->dni;
-                                                        }; ?></a>
-                                                </td>
-                                                <td><a href="javascript:;" class="email" data-name='email'
-                                                       data-type="text"
-                                                       data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter email"> <?php if ($reservaslist[$i]->email == null) {
-                                                            echo 'Vacío';
-                                                        } else {
-                                                            echo $reservaslist[$i]->email;
-                                                        }; ?></a>
-                                                </td>
-                                                <td><a href="javascript:;" class="facebook" data-name='facebook'
-                                                       data-type="text"
-                                                       data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter facebook"> <?php if ($reservaslist[$i]->facebook == null) {
-                                                            echo 'Vacío';
-                                                        } else {
-                                                            echo $reservaslist[$i]->facebook;
-                                                        }; ?></a>
-                                                </td>
-                                                <td><a href="javascript:;" class="linkfacebook" data-name='linkfacebook'
-                                                       data-type="text"
-                                                       data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter linkfacebook"> <?php if ($reservaslist[$i]->linkfacebook == null) {
-                                                            echo 'Vacío';
-                                                        } else {
-                                                            echo $reservaslist[$i]->linkfacebook;
-                                                        }; ?></a>
-                                                </td>
-                                                <td><a href="javascript:;" class="ok" data-name='ok'
-                                                       data-type="text"
-                                                       data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter ok"> <?php if ($reservaslist[$i]->ok == null) {
-                                                            echo 'Vacío';
-                                                        } else {
-                                                            echo $reservaslist[$i]->ok;
-                                                        }; ?></a>
-                                                </td>
-                                                <td><?php echo $reservaslist[$i]->tipo; ?></td>
-                                                <td><a href="javascript:;" class="interes" data-name='interes'
-                                                       data-type="text"
-                                                       data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter interes"> <?php if ($reservaslist[$i]->interes == null) {
-                                                            echo 'Vacío';
-                                                        } else {
-                                                            echo $reservaslist[$i]->interes;
-                                                        }; ?></a>
-                                                </td>
-                                                <td><?php echo $reservaslist[$i]->fechaStr; ?></td>
-                                                <td><?php echo $reservaslist[$i]->horario; ?></td>
-                                                <td><a href="javascript:;" class="quien" data-name='quien'
-                                                       data-type="text"
-                                                       data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter quien"> <?php if ($reservaslist[$i]->quien == null) {
-                                                            echo 'Vacío';
-                                                        } else {
-                                                            echo $reservaslist[$i]->quien;
-                                                        }; ?></a>
-                                                </td>
-                                                <td><?php echo $reservaslist[$i]->source; ?></td>
-                                                <td><a href="javascript:;" class="hora" data-name='owner'
-                                                       data-type="text"
-                                                       data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter owner"> <?php if ($reservaslist[$i]->owner == null) {
-                                                            echo 'Vacío';
-                                                        } else {
-                                                            echo $reservaslist[$i]->owner;
-                                                        }; ?></a>
-                                                </td>
-                                                <td><a href="javascript:;" class="consulta" data-name='consulta'
-                                                       data-type="text"
-                                                       data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                       data-original-title="Enter consulta"> <?php if ($reservaslist[$i]->consulta == null) {
-                                                            echo 'Vacío';
-                                                        } else {
-                                                            echo $reservaslist[$i]->consulta;
-                                                        }; ?></a>
-                                                </td>
+                                                <th scope="col">Reserva</th>
+                                                <th scope="col">Fecha</th>
+                                                <th scope="col">Fuente</th>
+                                                <th scope="col">Owner</th>
+                                                <th scope="col">Nombre</th>
+                                                <th scope="col">Apellido</th>
+                                                <th scope="col">Situación</th>
+                                                <th scope="col">Motivo</th>
+                                                <th scope="col">Teléfono</th>
+                                                <th scope="col">DNI</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Facebook</th>
+                                                <th scope="col">Link</th>
+                                                <th scope="col">Ok</th>
+                                                <th scope="col">Tipo</th>
+                                                <th scope="col">Interes</th>
+                                                <th scope="col">Día</th>
+                                                <th scope="col">Horario</th>
+                                                <th scope="col">Quien</th>
+                                                <th scope="col">Consulta</th>
                                             </tr>
-                                        <?php } ?>
-                                        </tbody>
-                                    </table>
+                                            </thead>
+                                            <tbody>
+                                            <?php for ($i = 0; $i < count($reservaslist); ++$i) { ?>
+                                                <tr>
+                                                    <td><?php echo $reservaslist[$i]->idReserva; ?></td>
+                                                    <td style="min-width: 135px;"><?php echo $reservaslist[$i]->fecha; ?></td>
+                                                    <td><?php echo $reservaslist[$i]->source; ?></td>
+                                                    <td><?php echo $reservaslist[$i]->owner; ?></td>
+
+                                                    <td><a href="javascript:;" class="nombre" data-name='nombre'
+                                                           data-type="text"
+                                                           data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
+                                                           data-original-title="Enter nombre"> <?php echo $reservaslist[$i]->nombre; ?></a>
+                                                    </td>
+                                                    <td><a href="javascript:;" class="apellido" data-name='apellido'
+                                                           data-type="text"
+                                                           data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
+                                                           data-original-title="Enter apellido"> <?php echo $reservaslist[$i]->apellido; ?></a>
+                                                    </td>
+                                                    <td><a href="javascript:;" class="situacion" data-name='situacion'
+                                                           data-type="select"
+                                                           data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
+                                                           data-original-title="Enter situacion"> <?php if ($reservaslist[$i]->situacion == null) {
+                                                                echo 'Vacío';
+                                                            } else {
+                                                                echo $reservaslist[$i]->situacion;
+                                                            }; ?></a>
+                                                    </td>
+                                                    <td><a href="javascript:;" class="motivo" data-name='motivo'
+                                                           data-type="text"
+                                                           data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
+                                                           data-original-title="Enter motivo"> <?php if ($reservaslist[$i]->motivo == null) {
+                                                                echo 'Vacío';
+                                                            } else {
+                                                                echo $reservaslist[$i]->motivo;
+                                                            }; ?></a>
+                                                    </td>
+                                                    <td><a href="javascript:;" class="telefono" data-name='telefono'
+                                                           data-type="text"
+                                                           data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
+                                                           data-original-title="Enter teléfono"> <?php if ($reservaslist[$i]->telefono == null) {
+                                                                echo 'Vacío';
+                                                            } else {
+                                                                echo $reservaslist[$i]->telefono;
+                                                            }; ?></a>
+                                                    </td>
+                                                    <td><a href="javascript:;" class="dni" data-name='dni'
+                                                           data-type="text"
+                                                           data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
+                                                           data-original-title="Enter dni"> <?php if ($reservaslist[$i]->dni == null) {
+                                                                echo 'Vacío';
+                                                            } else {
+                                                                echo $reservaslist[$i]->dni;
+                                                            }; ?></a>
+                                                    </td>
+                                                    <td><a href="javascript:;" class="email" data-name='email'
+                                                           data-type="text"
+                                                           data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
+                                                           data-original-title="Enter email"> <?php if ($reservaslist[$i]->email == null) {
+                                                                echo 'Vacío';
+                                                            } else {
+                                                                echo $reservaslist[$i]->email;
+                                                            }; ?></a>
+                                                    </td>
+                                                    <td><a href="javascript:;" class="facebook" data-name='facebook'
+                                                           data-type="text"
+                                                           data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
+                                                           data-original-title="Enter facebook"> <?php if ($reservaslist[$i]->facebook == null) {
+                                                                echo 'Vacío';
+                                                            } else {
+                                                                echo $reservaslist[$i]->facebook;
+                                                            }; ?></a>
+                                                    </td>
+                                                    <td><a href="javascript:;" class="linkfacebook"
+                                                           data-name='linkfacebook'
+                                                           data-type="text"
+                                                           data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
+                                                           data-original-title="Enter linkfacebook"> <?php if ($reservaslist[$i]->linkfacebook == null) {
+                                                                echo 'Vacío';
+                                                            } else {
+                                                                echo $reservaslist[$i]->linkfacebook;
+                                                            }; ?></a>
+                                                    </td>
+                                                    <td><a href="javascript:;" class="ok" data-name='ok'
+                                                           data-type="text"
+                                                           data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
+                                                           data-original-title="Enter ok"> <?php if ($reservaslist[$i]->ok == null) {
+                                                                echo 'Vacío';
+                                                            } else {
+                                                                echo $reservaslist[$i]->ok;
+                                                            }; ?></a>
+                                                    </td>
+                                                    <td><?php echo $reservaslist[$i]->tipo; ?></td>
+                                                    <td><a href="javascript:;" class="interes" data-name='interes'
+                                                           data-type="text"
+                                                           data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
+                                                           data-original-title="Enter interes"> <?php if ($reservaslist[$i]->interes == null) {
+                                                                echo 'Vacío';
+                                                            } else {
+                                                                echo $reservaslist[$i]->interes;
+                                                            }; ?></a>
+                                                    </td>
+                                                    <td><?php echo $reservaslist[$i]->fechaStr; ?></td>
+                                                    <td><?php echo $reservaslist[$i]->horario; ?></td>
+                                                    <td><a href="javascript:;" class="quien" data-name='quien'
+                                                           data-type="text"
+                                                           data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
+                                                           data-original-title="Enter quien"> <?php if ($reservaslist[$i]->quien == null) {
+                                                                echo 'Vacío';
+                                                            } else {
+                                                                echo $reservaslist[$i]->quien;
+                                                            }; ?></a>
+                                                    </td>
+                                                    <td><a href="javascript:;" class="consulta" data-name='consulta'
+                                                           data-type="text"
+                                                           data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
+                                                           data-original-title="Enter consulta"> <?php if ($reservaslist[$i]->consulta == null) {
+                                                                echo 'Vacío';
+                                                            } else {
+                                                                echo $reservaslist[$i]->consulta;
+                                                            }; ?></a>
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
 
