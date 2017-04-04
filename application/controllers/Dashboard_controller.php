@@ -11,14 +11,14 @@ class Dashboard_controller extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        if ( !isLogged() ) {
-            redirect( base_url() . 'login' );
+        if (!isLogged()) {
+            redirect(base_url() . 'login');
         }
         $this->load->helper('form');
         $this->load->helper('url');
         $this->load->database();
         $this->load->library('pagination');
-        $this->load->model( "Dashboard_model" );
+        $this->load->model("Dashboard_model");
     }
 
     public function index()
@@ -26,21 +26,24 @@ class Dashboard_controller extends CI_Controller
         reservas();
     }
 
-    public function getReservas(){
-        echo json_encode($this->Dashboard_model->get_reservas('10','1'));
+    public function getReservas()
+    {
+        echo json_encode($this->Dashboard_model->get_reservas('10', '1'));
     }
 
-    public function setReserva(){
+    public function setReserva()
+    {
         $this->Dashboard_model->set_reserva();
     }
 
-    public function reservas(){
+    public function reservas()
+    {
         //pagination settings
         $config['base_url'] = site_url('Dashboard_controller/reservas');
         $config['total_rows'] = $this->db->count_all('reservas');
-        $config['per_page'] = "100";
+        $config['per_page'] = 100;
         $config['uri_segment'] = $this->uri->total_segments();
-        $choice = $config["total_rows"]/$config["per_page"];
+        $choice = $config["total_rows"] / $config["per_page"];
         $config["num_links"] = 10;
 
         // integrate bootstrap pagination
@@ -67,31 +70,35 @@ class Dashboard_controller extends CI_Controller
 
         $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 
-        $data['reservaslist'] = $this->Dashboard_model->get_reservas($config["per_page"], $data['page'], NULL);
+        $start = (($data['page'] - 1) * $config["per_page"]) + 1;
+        if ($start < 1) {
+            $start = 1;
+        }
+        $data['reservaslist'] = $this->Dashboard_model->get_reservas($config["per_page"], $start, NULL);
+        //$data['reservaslist'] = $this->Dashboard_model->get_reservas($config["per_page"], $data['page'], NULL);
 
         $data['pagination'] = $this->pagination->create_links();
-
         // load view
 
         $data["title"] = 'RESERVAS';
 
-        $this->load->view( 'reservas_view', $data );
+        $this->load->view('reservas_view', $data);
     }
 
     function search()
     {
         // get search string
-        $search = ($this->input->post("reserva_search"))? $this->input->post("reserva_search") : "NIL";
+        $search = ($this->input->post("reserva_search")) ? $this->input->post("reserva_search") : "NIL";
 
         $search = ($this->uri->segment(3)) ? $this->uri->segment(3) : $search;
 
         // pagination settings
         $config = array();
-        $config['base_url'] = site_url("Dashboard_controller/search/$search");
+        $config['base_url'] = site_url("search/$search");
         $config['total_rows'] = $this->Dashboard_model->get_reservas_count($search);
-        $config['per_page'] = "100";
+        $config['per_page'] = 100;
         $config['uri_segment'] = $this->uri->total_segments();
-        $choice = $config["total_rows"]/$config["per_page"];
+        $choice = $config["total_rows"] / $config["per_page"];
         $config["num_links"] = 10;
 
         // integrate bootstrap pagination
@@ -117,11 +124,15 @@ class Dashboard_controller extends CI_Controller
 
         $data['page'] = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
 
-        $data['reservaslist'] = $this->Dashboard_model->get_reservas($config['per_page'], $data['page'], $search);
+        $start = ($data['page'] - 1) * $config["per_page"];
+        if ($start < 1) {
+            $start = 1;
+        }
+        $data['reservaslist'] = $this->Dashboard_model->get_reservas($config["per_page"], $start, $search);
 
         $data['pagination'] = $this->pagination->create_links();
         $data["title"] = 'SEARCH';
         //load view
-        $this->load->view('reservas_view',$data);
+        $this->load->view('reservas_view', $data);
     }
 }

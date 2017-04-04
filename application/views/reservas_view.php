@@ -48,7 +48,7 @@
                                 <div class="col-md-12">
                                     <?php
                                     $attr = array("class" => "form-horizontal", "role" => "form", "id" => "form1", "name" => "form1");
-                                    echo form_open("Dashboard_controller/search", $attr); ?>
+                                    echo form_open("search", $attr); ?>
                                     <div class="form-group">
                                         <div class="col-md-6">
                                             <input class="form-control" id="reserva_search" name="reserva_search"
@@ -60,7 +60,7 @@
                                             <input id="btn_search" name="btn_search" type="submit"
                                                    class="btn btn-default dark"
                                                    value="Buscar"/>
-                                            <a href="<?php echo base_url() . "index.php/Dashboard_controller/reservas"; ?>"
+                                            <a href="<?php echo base_url(); ?>"
                                                class="btn btn-default blue">Mostrar Todo</i></a>
                                         </div>
                                     </div>
@@ -71,7 +71,7 @@
                                 <div class="col-md-12 bg-border">
                                     <div class="table-responsive" style="max-height: 500px;">
                                         <table id="table-reservas"
-                                               class="table table-striped table-bordered table-hover">
+                                               class="table table-striped table-bordered">
                                             <thead>
                                             <tr>
                                                 <th scope="col">Reserva</th>
@@ -97,8 +97,59 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <?php for ($i = 0; $i < count($reservaslist); ++$i) { ?>
-                                                <tr>
+                                            <?php for ($i = 0; $i < count($reservaslist); ++$i) {
+                                                $colorRow = '';
+                                                switch ($reservaslist[$i]->situacion) {
+                                                    case 'Confirmó':
+                                                        $colorRow = '';
+                                                        break;
+                                                    case 'Envíe Whats app':
+                                                        $colorRow = '#ffb7b5';
+                                                        break;
+                                                    case 'Rellamar':
+                                                        $colorRow = '#c1ccff';
+                                                        break;
+                                                    case 'Entrevista':
+                                                        $colorRow = '';
+                                                        break;
+                                                    case 'Dudas':
+                                                        $colorRow = '';
+                                                        break;
+                                                    case 'Enviar mail':
+                                                        $colorRow = '';
+                                                        break;
+                                                    case 'Canceló - reprogramar':
+                                                        $colorRow = '';
+                                                        break;
+                                                    case 'Mal el número':
+                                                        $colorRow = '';
+                                                        break;
+                                                    case 'Se anotó':
+                                                        $colorRow = '#62ff5b';
+                                                        break;
+                                                    case 'Vino, no se anotó':
+                                                        $colorRow = '';
+                                                        break;
+                                                    case 'No le interesa':
+                                                        $colorRow = '';
+                                                        break;
+                                                    case 'No llamar':
+                                                        $colorRow = '';
+                                                        break;
+                                                    case 'Rechazado':
+                                                        $colorRow = '#d7b3da';
+                                                        break;
+                                                    case 'En espera':
+                                                        $colorRow = '#faff57';
+                                                        break;
+                                                    case 'Aprobado':
+                                                        $colorRow = '#ffb7b5';
+                                                        break;
+                                                }
+                                                ?>
+                                                <tr <?php if ($colorRow != '') {
+                                                    echo 'style="background-color:' . $colorRow . ';"';
+                                                } ?> >
                                                     <td><?php echo $reservaslist[$i]->idReserva; ?></td>
                                                     <td style="min-width: 135px;"><?php echo $reservaslist[$i]->fecha; ?></td>
                                                     <td><?php echo $reservaslist[$i]->source; ?></td>
