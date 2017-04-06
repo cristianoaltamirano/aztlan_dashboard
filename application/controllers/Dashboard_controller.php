@@ -81,6 +81,7 @@ class Dashboard_controller extends CI_Controller
         // load view
 
         $data["title"] = 'RESERVAS';
+        $data['dashboard_model'] = $this->Dashboard_model;
 
         $this->load->view('reservas_view', $data);
     }
@@ -132,6 +133,7 @@ class Dashboard_controller extends CI_Controller
 
         $data['pagination'] = $this->pagination->create_links();
         $data["title"] = 'SEARCH';
+        $data['dashboard_model'] = $this->Dashboard_model;
         //load view
         $this->load->view('reservas_view', $data);
     }

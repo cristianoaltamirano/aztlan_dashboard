@@ -39,7 +39,7 @@
 <script src="<?php echo base_url(); ?>assets/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
-
+<script src="<?php echo base_url(); ?>lib/js/jquery.fixedheadertable.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>lib/js/bootstrap-table.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>lib/js/bootstrap-table-editable.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>lib/js/scripts.js" type="text/javascript"></script>

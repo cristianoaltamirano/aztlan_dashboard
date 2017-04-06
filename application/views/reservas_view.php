@@ -8,16 +8,6 @@
 
 ?>
 
-<?php
-/**
- * Created by PhpStorm.
- * User: calta
- * Date: 9/3/2017
- * Time: 14:29
- */
-
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -25,6 +15,40 @@
 
     <?php $this->load->view("includes/header"); ?>
 
+    <style>
+        table {
+            border: 0;
+            padding: 0;
+            margin: 0 0 20px 0;
+            border-collapse: collapse;
+        }
+        th {
+            padding: 5px;
+            /* NOTE: th padding must be set explicitly in order to support IE */
+            text-align: right;
+            font-weight:bold;
+            line-height: 2em;
+            color: #FFF;
+            background-color: #555;
+        }
+        tbody td {
+            padding: 10px;
+            line-height: 18px;
+            border-top: 1px solid #E0E0E0;
+        }
+        tbody tr:nth-child(2n) {
+            background-color: #F7F7F7;
+        }
+        tbody tr:hover {
+            background-color: #EEEEEE;
+        }
+        td {
+            text-align: right;
+        }
+        td:first-child, th:first-child {
+            text-align: left;
+        }
+    </style>
 </head>
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-sidebar-closed">
 <div class="page-wrapper">
@@ -71,11 +95,12 @@
                                 <div class="col-md-12 bg-border">
                                     <div class="table-responsive" style="max-height: 500px;">
                                         <table id="table-reservas"
-                                               class="table table-striped table-bordered">
+                                               class="table table-fixed table-striped table-bordered">
                                             <thead>
                                             <tr>
                                                 <th scope="col">Reserva</th>
                                                 <th scope="col">Fecha</th>
+                                                <th scope="col">Tipo Evento</th>
                                                 <th scope="col">Fuente</th>
                                                 <th scope="col">Owner</th>
                                                 <th scope="col">Nombre</th>
@@ -88,7 +113,6 @@
                                                 <th scope="col">Facebook</th>
                                                 <th scope="col">Link</th>
                                                 <th scope="col">Ok</th>
-                                                <th scope="col">Tipo</th>
                                                 <th scope="col">Interes</th>
                                                 <th scope="col">Día</th>
                                                 <th scope="col">Horario</th>
@@ -152,6 +176,7 @@
                                                 } ?> >
                                                     <td><?php echo $reservaslist[$i]->idReserva; ?></td>
                                                     <td style="min-width: 135px;"><?php echo $reservaslist[$i]->fecha; ?></td>
+                                                    <td><?php echo $dashboard_model->getTipoEvento($reservaslist[$i]->tipoEvento_idTipo); ?></td>
                                                     <td><?php echo $reservaslist[$i]->source; ?></td>
                                                     <td><?php echo $reservaslist[$i]->owner; ?></td>
 
@@ -238,7 +263,7 @@
                                                                 echo $reservaslist[$i]->ok;
                                                             }; ?></a>
                                                     </td>
-                                                    <td><?php echo $reservaslist[$i]->tipo; ?></td>
+
                                                     <td><a href="javascript:;" class="interes" data-name='interes'
                                                            data-type="text"
                                                            data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
@@ -287,6 +312,7 @@
             </div>
         </div>
         <?php $this->load->view("includes/footer"); ?>
+
 
 </body>
 </html>

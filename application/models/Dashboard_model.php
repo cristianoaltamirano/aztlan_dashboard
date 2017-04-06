@@ -35,8 +35,17 @@ class Dashboard_model extends CI_Model
         return $query->result()[0]->usuarios_idUsuario;
     }
 
+    public function getTipoEvento($idEventoTipo){
+        $query = $this->db->query('
+        SELECT * 
+        FROM tipos_evento
+        WHERE tipos_evento.idTipo = ?
+        ',array($idEventoTipo));
 
-    function get_reservas($limit, $start, $st = NULL)
+        return $query->result()[0]->nombre;
+    }
+
+    public function get_reservas($limit, $start, $st = NULL)
     {
         if ($st == "NIL") $st = "";
         $sql = '
@@ -56,11 +65,12 @@ class Dashboard_model extends CI_Model
         OR eventos.titulo LIKE "%' . $st . '%"
         ORDER BY reservas.fecha DESC
         LIMIT ' . $start. ', ' . $limit;
+        $this->db->cache_delete_all();
         $query = $this->db->query($sql);
         return $query->result();
     }
 
-    function get_reservas_count($st = NULL)
+    public function get_reservas_count($st = NULL)
     {
         if ($st == "NIL") $st = "";
         $sql = '
@@ -79,6 +89,7 @@ class Dashboard_model extends CI_Model
         OR reservas.owners_idOwner LIKE "%' . $st . '%"
         OR eventos.titulo LIKE "%' . $st . '%" 
         ORDER BY reservas.fecha DESC';
+        $this->db->cache_delete_all();
         $query = $this->db->query($sql);
         return $query->num_rows();
     }
