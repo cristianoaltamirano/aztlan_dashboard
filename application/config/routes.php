@@ -11,6 +11,10 @@ $route['reservas']              = 'Dashboard_controller/reservas';
 $route['search']                = 'Dashboard_controller/search';
 $route['setReserva']            = 'Dashboard_controller/setReserva';
 
+
+//LOGIN
 $route['user_login_process']    = 'Login_controller/user_login_process';
 $route['logout']                = 'Login_controller/logout';
 
+//PAGOS REPORTES
+$route['pagosReportes']         = 'Pagos_controller/reportes';

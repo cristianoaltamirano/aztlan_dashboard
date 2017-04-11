@@ -5,10 +5,11 @@
  * Date: 9/3/2017
  * Time: 14:28
  */
-
+    header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
 ?>
 
 <meta charset="utf-8" />
+
 <title>aztlan | dashboard</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1" name="viewport" />

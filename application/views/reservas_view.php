@@ -22,29 +22,35 @@
             margin: 0 0 20px 0;
             border-collapse: collapse;
         }
+
         th {
             padding: 5px;
             /* NOTE: th padding must be set explicitly in order to support IE */
             text-align: right;
-            font-weight:bold;
+            font-weight: bold;
             line-height: 2em;
             color: #FFF;
             background-color: #555;
         }
+
         tbody td {
             padding: 10px;
             line-height: 18px;
             border-top: 1px solid #E0E0E0;
         }
+
         tbody tr:nth-child(2n) {
             background-color: #F7F7F7;
         }
+
         tbody tr:hover {
             background-color: #EEEEEE;
         }
+
         td {
             text-align: right;
         }
+
         td:first-child, th:first-child {
             text-align: left;
         }
@@ -112,8 +118,6 @@
                                                 <th scope="col">Email</th>
                                                 <th scope="col">Facebook</th>
                                                 <th scope="col">Link</th>
-                                                <th scope="col">Ok</th>
-                                                <th scope="col">Interes</th>
                                                 <th scope="col">Día</th>
                                                 <th scope="col">Horario</th>
                                                 <th scope="col">Quien</th>
@@ -177,8 +181,8 @@
                                                     <td><?php echo $reservaslist[$i]->idReserva; ?></td>
                                                     <td style="min-width: 135px;"><?php echo $reservaslist[$i]->fecha; ?></td>
                                                     <td><?php echo $dashboard_model->getTipoEvento($reservaslist[$i]->tipoEvento_idTipo); ?></td>
-                                                    <td><?php echo $reservaslist[$i]->source; ?></td>
-                                                    <td><?php echo $reservaslist[$i]->owner; ?></td>
+                                                    <td><?php echo $dashboard_model->getSource($reservaslist[$i]->source); ?></td>
+                                                    <td><?php echo $dashboard_model->getOwner($reservaslist[$i]->owners_idOwner); ?></td>
 
                                                     <td><a href="javascript:;" class="nombre" data-name='nombre'
                                                            data-type="text"
@@ -254,25 +258,6 @@
                                                                 echo $reservaslist[$i]->linkfacebook;
                                                             }; ?></a>
                                                     </td>
-                                                    <td><a href="javascript:;" class="ok" data-name='ok'
-                                                           data-type="text"
-                                                           data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                           data-original-title="Enter ok"> <?php if ($reservaslist[$i]->ok == null) {
-                                                                echo 'Vacío';
-                                                            } else {
-                                                                echo $reservaslist[$i]->ok;
-                                                            }; ?></a>
-                                                    </td>
-
-                                                    <td><a href="javascript:;" class="interes" data-name='interes'
-                                                           data-type="text"
-                                                           data-pk="<?php echo $reservaslist[$i]->idReserva; ?>"
-                                                           data-original-title="Enter interes"> <?php if ($reservaslist[$i]->interes == null) {
-                                                                echo 'Vacío';
-                                                            } else {
-                                                                echo $reservaslist[$i]->interes;
-                                                            }; ?></a>
-                                                    </td>
                                                     <td><?php echo $reservaslist[$i]->fechaStr; ?></td>
                                                     <td><?php echo $reservaslist[$i]->horario; ?></td>
                                                     <td><a href="javascript:;" class="quien" data-name='quien'
@@ -311,7 +296,10 @@
                 </div>
             </div>
         </div>
-        <?php $this->load->view("includes/footer"); ?>
+    </div>
+</div>
+
+<?php $this->load->view("includes/footer"); ?>
 
 
 </body>

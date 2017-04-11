@@ -74,7 +74,7 @@ class Dashboard_controller extends CI_Controller
         if ($start < 1) {
             $start = 1;
         }
-        $data['reservaslist'] = $this->Dashboard_model->get_reservas($config["per_page"], $start, NULL);
+        $data['reservaslist'] = $this->Dashboard_model->get_reservas($config["per_page"] - 1, $start - 1, NULL);
         //$data['reservaslist'] = $this->Dashboard_model->get_reservas($config["per_page"], $data['page'], NULL);
 
         $data['pagination'] = $this->pagination->create_links();
@@ -129,7 +129,7 @@ class Dashboard_controller extends CI_Controller
         if ($start < 1) {
             $start = 1;
         }
-        $data['reservaslist'] = $this->Dashboard_model->get_reservas($config["per_page"], $start, $search);
+        $data['reservaslist'] = $this->Dashboard_model->get_reservas($config["per_page"] - 1, $start - 1, $search);
 
         $data['pagination'] = $this->pagination->create_links();
         $data["title"] = 'SEARCH';
